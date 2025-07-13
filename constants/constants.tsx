@@ -1,17 +1,17 @@
 export const products = [
   {
     id: 1,
-    name: "Gestopride",
+    name: "Vonocef 500",
     image: "@/assets/images/1.png",
   },
   {
     id: 2,
-    name: "KOCAL D3",
+    name: "Tab Azeep",
     image: "@/assets/images/2.png",
   },
   {
     id: 3,
-    name: "AZEEPURE",
+    name: "Painpure aqua injection",
     image: "@/assets/images/3.png",
   },
   {
@@ -46,7 +46,7 @@ export const products = [
   },
   {
     id: 10,
-    name: "Pro-Wal",
+    name: "Multipride injection",
     image: "@/assets/images/10.png",
   },
   {
@@ -61,61 +61,36 @@ export const products = [
   },
   {
     id: 13,
-    name: "offpride-oz",
-    image: "@/assets/images/13.png",
-  },
-  {
-    id: 14,
     name: "cifipure-lb",
     image: "@/assets/images/14.png",
   },
   {
-    id: 15,
-    name: "cifipure o",
-    image: "@/assets/images/15.png",
-  },
-  {
-    id: 16,
+    id: 14,
     name: "painpure-sp",
     image: "@/assets/images/16.png",
   },
   {
-    id: 17,
+    id: 15,
     name: "Multipride 5G",
     image: "@/assets/images/17.png",
   },
   {
-    id: 18,
-    name: "Mydhex",
-    image: "@/assets/images/18.png",
-  },
-  {
-    id: 19,
+    id: 16,
     name: "cvpure 625",
     image: "@/assets/images/19.png",
   },
   {
-    id: 20,
+    id: 17,
     name: "purepanta-dsr",
     image: "@/assets/images/20.png",
   },
   {
-    id: 21,
+    id: 18,
     name: "montipure-lc",
     image: "@/assets/images/21.png",
   },
   {
-    id: 22,
-    name: "purecough-d",
-    image: "@/assets/images/22.png",
-  },
-  {
-    id: 23,
-    name: "purecough-ls",
-    image: "@/assets/images/23.png",
-  },
-  {
-    id: 24,
+    id: 19,
     name: "ribosure",
     image: "@/assets/images/24.png",
   },
