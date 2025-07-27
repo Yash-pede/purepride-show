@@ -2,7 +2,7 @@ export const products = [
   {
     id: 1,
     name: "Vonocef 500",
-    image: "@/assets/images/1.png",
+    image: "@/assets/images/pp/1.png",
   },
   {
     id: 2,
@@ -17,47 +17,47 @@ export const products = [
   {
     id: 4,
     name: "GRED-RAFT Pregnancy",
-    image: "@/assets/images/4.png",
+    image: "@/assets/images/pp/5.jpg",
   },
   {
     id: 5,
     name: "GRED-RAFT Reflux",
-    image: "@/assets/images/5.png",
+    image: "@/assets/images/pp/5.png",
   },
   {
     id: 6,
     name: "Enofer Xt",
-    image: "@/assets/images/6.png",
+    image: "@/assets/images/pp/6.png",
   },
   {
     id: 7,
     name: "Arzino",
-    image: "@/assets/images/7.png",
+    image: "@/assets/images/pp/7.png",
   },
   {
     id: 8,
     name: "Koral-Fort",
-    image: "@/assets/images/8.png",
+    image: "@/assets/images/pp/8.png",
   },
   {
     id: 9,
     name: "Multipride",
-    image: "@/assets/images/9.png",
+    image: "@/assets/images/pp/9.png",
   },
   {
     id: 10,
     name: "Multipride injection",
-    image: "@/assets/images/10.png",
+    image: "@/assets/images/pp/3.png",
   },
   {
     id: 11,
     name: "ZyDine",
-    image: "@/assets/images/11.png",
+    image: "@/assets/images/pp/11.png",
   },
   {
     id: 12,
     name: "L-Bino",
-    image: "@/assets/images/12.png",
+    image: "@/assets/images/pp/12.png",
   },
   {
     id: 13,
