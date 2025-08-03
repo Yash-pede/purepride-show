@@ -106,12 +106,12 @@ export const products = [
   },
   {
     id: 22,
-    name: "pridopain-p_tablets",
+    name: "pridopain-p tablets",
     image: "@/assets/images/pp/pridopain-p_tablets.jpg",
   },
   {
-    id: 22,
-    name: "pridopain_ace",
+    id: 23,
+    name: "pridopain ace",
     image: "@/assets/images/pp/pridopain_ace.jpg",
   },
 ];
