@@ -1,75 +1,100 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { products } from "@/constants/constants";
+import { Product } from "@/constants/type";
+import { SelectedProductsContext } from "@/context/SelectedProductsContext";
+import React, { useContext } from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+const TabOneScreen = () => {
+    const { selectedProducts, setSelectedProducts }  = useContext(
+    SelectedProductsContext
+  )!;
+
+  const toggleProduct = (product: Product) => {
+    const alreadySelected = selectedProducts.some((p) => p.id === product.id);
+    if (alreadySelected) {
+      setSelectedProducts((prev: Product[]) => prev.filter((p) => p.id !== product.id));
+    } else {
+      setSelectedProducts((prev: Product[]) => [...prev, product]);
+    }
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={{ flex: 1, padding: 16 }}>
+      <ScrollView contentContainerStyle={{ padding: 8 }}>
+        <View style={styles.grid}>
+          {products.map((product: Product) => (
+            <ProductButton
+              key={product.id}
+              product={product}
+              isSelected={selectedProducts.some((p) => p.id === product.id)}
+              onSelect={toggleProduct}
+            />
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   );
-}
+};
+
+const ProductButton = ({
+  product,
+  isSelected,
+  onSelect,
+}: {
+  product: Product;
+  isSelected: boolean;
+  onSelect: (product: Product) => void;
+}) => {
+  return (
+    <TouchableOpacity
+      style={[styles.button, isSelected && styles.buttonSelected]}
+      onPress={() => onSelect(product)}
+      activeOpacity={0.7}
+    >
+      <Text
+        style={[styles.buttonText, isSelected && styles.buttonTextSelected]}
+      >
+        {product.name.toUpperCase()}
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 16,
+    paddingHorizontal: 12,
+    marginBottom: 12,
+    borderRadius: 12,
+    backgroundColor: "#e0e0e0",
+    width: "48%",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  buttonSelected: {
+    backgroundColor: "#222", // or add your theme color
+  },
+  buttonText: {
+    color: "#222",
+    fontWeight: "bold",
+    fontSize: 16,
+    letterSpacing: 1,
+  },
+  buttonTextSelected: {
+    color: "#fff",
   },
 });
+
+export default TabOneScreen;
